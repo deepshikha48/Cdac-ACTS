@@ -1,0 +1,9 @@
+<h3>Register New Movie</h3>
+<div>
+    <form #movieForm="ngForm" (ngSubmit)="registerMovie(movieForm)">
+        <input type="number"  class="form-control" style="width: 30%;" name="movieid" placeholder="Enter Movie Id" ngModel required><br>
+        <input type="text"  class="form-control" style="width: 30%;" name="moviename" placeholder="Enter Movie Name" ngModel required><br>
+        <input type="text"  class="form-control" style="width: 30%;" name="director" placeholder="Enter Director Name" ngModel required><br>
+        <input type="submit" value="submit" class="btn btn-primary">
+    </form>
+</div>

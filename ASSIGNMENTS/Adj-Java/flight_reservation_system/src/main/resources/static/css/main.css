@@ -1,0 +1,21 @@
+body {
+    font-family:Comic Sans MS;
+}
+
+h1{
+	background-color:lightblue; 
+	text-align:center;
+}
+
+div{
+	text-align:center;
+}
+
+table{
+	background-color: lightblue; 
+	margin: auto;
+}
+
+.err {
+	color: red;
+}

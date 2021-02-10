@@ -1,0 +1,43 @@
+<head>
+    <title>User Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="check">
+        <input type="checkbox" id="checkbox">
+        <label for="checkbox">
+        <i class="fa fa-cart-plus" style="font-size:30px" id="usercart" (click)="getAllOrderedItemList()" ></i><br>
+        <i class="fa fa-close" style="font-size:20px" id="cancel"></i>
+        </label>
+        <div class="sidebar">
+
+            <header>Cart</header>
+            <div class="user">
+                <i class="fa fa-cart-plus" style='font-size:55px'></i><br>
+            </div>
+            <div style="margin-left: 50px;" *ngIf="menuItems.length!=0">
+                <table style="text-align: center;color: white;">
+                    <tr>
+                        <th>Meal</th>
+                        <th> Quantity</th>
+                    </tr>
+                    <tr *ngFor="let m of menuItems" class="descrption">
+                        <td>{{m.itemName}}</td>
+                        <td>{{m.totalQuantity}}</td>
+                    </tr>
+
+                </table>
+
+                <br><br>
+                <div style="align-content: center;color: white;">
+                    <b style="margin-left: 40px;">Total Bill: {{totalBill}} &#8377;</b><br><br>
+                    <button (click)="payAmount()" class="btn btn-info" style="margin-left: 20px;padding: 4px;">&nbsp; &nbsp; Pay &nbsp;&nbsp;</button>
+                    <button (click)="cancelOrder()" class="btn btn-danger" style="margin-left: 20px;padding: 4px;">Delete cart</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>

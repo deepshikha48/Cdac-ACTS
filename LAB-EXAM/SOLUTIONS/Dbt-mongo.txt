@@ -1,0 +1,139 @@
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+PRN:200240120058	                                          MYSQL
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. DISPLAY STUDENT NO. AND TOTAL MARKS OF EACH STUDENT HAVING TOTAL MARKS GREATER
+THAN 160.
+
+SELECT student_no , sum(mark) AS Total_marks FROM marks GROUP BY student_no HAVING Total_marks > 160;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. DISPLAY STUDENT NAME (FORENAME + SURNAME), MODULE NAME, AND MARK OF STUDENTS
+HAVING MARK GREATER THAN THE MARK OF EMILE ZOLA IN THE DATABASES MODULE USING
+JOINS.
+
+
+SELECT concat(students.forename,' ',students.surname) AS full_name ,modules.module_name, marks.mark FROM students
+JOIN marks ON students.student_no=marks.student_no
+JOIN modules ON marks.module_code=modules.module_code
+WHERE marks.mark > (
+			SELECT marks.mark FROM students 
+		   	JOIN marks ON students.student_no=marks.student_no 
+			JOIN modules ON marks.module_code=modules.module_code  
+			WHERE concat(forename,' ',surname)='Emile Zola' AND modules.module_name='Databases'
+		   ) 
+HAVING modules.module_name='Databases';
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. CREATE A FOREIGN KEY CONSTRAINT ON THE ‘STUDENT_NO’ COLUMN OF THE MARKS TABLE
+ASSUMING ‘STUDENT_NO’ IS THE PRIMARY KEY OF THE STUDENT TABLE.
+
+ALTER TABLE students ADD PRIMARY KEY(student_no);
+
+ALTER TABLE marks   ADD FOREIGN KEY (student_no) REFERENCES students (student_no);
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4. WRITE A FUNCTION TO TAKE THE INPUT AS MARK AND RETURN THE GRADE.
+GRADE IS A IF MARK IS 80 AND ABOVE
+ELSE GRADE IS B IF MARK IS IN RANGE 65 TO 80
+ELSE GRADE IS C IF MARK IS IN RANGE 50 TO 64
+OTHERWISE, FAIL IF MARK < 50.
+
+
+delimiter $
+CREATE FUNCTION grade_calculator
+(
+	#creating IN type of variable to store marks
+	var_marks INTEGER      
+)
+#returns grade as varchar 
+RETURNS VARCHAR(10)
+DETERMINISTIC
+BEGIN
+	DECLARE grade VARCHAR(10) DEFAULT '';
+
+	#condition for setting grades
+	IF var_marks >= 80 THEN SET grade= 'A';
+	ELSEIF var_marks >= 65 AND var_marks < 80 THEN SET grade= 'B';
+    	ELSEIF var_marks >= 50 and var_marks <= 64 THEN SET grade= 'C';
+	ELSE  SET grade= 'FAIL'; 
+    	END IF;
+
+    	RETURN grade;
+END $
+
+#Calling function
+SELECT grade_calculator(73); #output: B
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5. WRITE A STORED PROCEDURE TO DISPLAY ALL THE TABLES WHOSE NAME STARTS WITH M.
+
+delimiter #	
+CREATE PROCEDURE display_tables()
+BEGIN
+	DECLARE var_table VARCHAR(50);
+    	DECLARE notfound BOOLEAN DEFAULT false;
+
+	#Using information schema to fetch table name which starts with M
+	DECLARE tables_list CURSOR FOR SELECT table_name FROM information_schema.tables WHERE table_name Like "M%";
+	
+	#Handling Exception , if cursor reaches till end then set notfound as true							
+	DECLARE  continue HANDLER FOR not found SET notfound=true;
+
+	OPEN tables_list;
+
+	cur_loop:LOOP
+    
+		FETCH tables_list INTO var_table;
+
+		#If not is true then no further data to fetch so exit 
+        	IF notfound THEN
+			LEAVE cur_loop;
+		END IF;
+
+		#Printing result one by one
+        	SELECT var_table as Table_names;
+        
+    	END LOOP cur_loop;
+
+	#Closing the cursor
+    	CLOSE tables_list;
+END #
+
+#Calling procedure
+CALL display_tables(); 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+							               MONGODB
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. DISPLAY EMPLOYEE NAME WHOSE SALARY(SAL) GREATER THAN 2000.
+
+Using emp.json
+
+db.emp1.find({salary:{$gt:2000.00}},{_id:0,first_name:1});
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. INSERT A RECORD IN THE EMP COLLECTION. (ASSUME EMPLOYEE DETAILS)
+
+Using emp.csv
+
+db.emp.insert({EMPNO:"7788",ENAME:"DEEP",JOB:"CLERK",MGR:"7698",HIREDATE:"11/11/1992",SAL:"3000",COMM:"",DEPTNO:20})
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. DELETE THE RECORD OF THE EMPLOYEE WHOSE NAME IS FORD
+
+Using emp.csv
+
+db.emp.remove({ENAME:"FORD"});
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+

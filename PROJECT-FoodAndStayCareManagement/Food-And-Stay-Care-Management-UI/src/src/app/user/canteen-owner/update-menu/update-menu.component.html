@@ -1,0 +1,49 @@
+<body>
+    <div class="title">
+        <div class="card">
+            <h3>Update Menu</h3>
+            <div style="width: 400px;">
+                <form novalidate #menuItem="ngForm" (ngSubmit)="onSubmit()">
+                    <div class="box">
+                        <input type="text" class="form-control" id="itemName" placeholder="Name" name="itemName" pattern="[a-zA-Z][a-zA-Z ]+" [(ngModel)]="menu.itemName" readonly required title="Name should contain only alphabets">
+                    </div>
+
+                    <div class="box">
+                        <input type="text" class="form-control" id="totalQuantity" placeholder="Total quantity" name="totalQuantity" [(ngModel)]="menu.totalQuantity" min="0" required pattern="^[1-9][0-9]*$" #totalQuantity="ngModel">
+                    </div>
+                    <div class="error" *ngIf="!totalQuantity?.valid && (totalQuantity?.dirty || totalQuantity?.touched)">
+                        &#10060;Enter valid quantity!
+                    </div>
+
+
+                    <div class="box">
+                        <textarea class="form-control" id="description" placeholder="Description" name="description" rows="2" cols="40" [(ngModel)]="menu.description" required #description="ngModel"></textarea>
+                    </div>
+                    <div class="error" *ngIf="!description?.valid && (description?.dirty || description?.touched)">
+                        &#10060; Exceeds max length!
+                    </div>
+
+
+                    <div class="box">
+                        <input type="text" class="form-control" placeholder="Price" id="price" [(ngModel)]="menu.price" name="price" min="0" required #price="ngModel" pattern="^[0-9][0-9]*$">
+                    </div>
+                    <div class="error" *ngIf="!price?.valid && (price?.dirty || price?.touched)">
+                        &#10060;Enter valid price!
+                    </div>
+
+
+                    <div class="box">
+                        <input type="text" class="form-control" id="mealType" required [(ngModel)]="menu.mealType" readonly name="mealType">
+                    </div>
+
+                    <div class="box">
+                        <input type="text" class="form-control" id="day" required [(ngModel)]="menu.day" readonly name="day">
+                    </div><br>
+                    <button type="submit" class="btn btn-info" [disabled]="!menuItem?.valid">Update</button>&nbsp;
+                    <button type="submit" class="btn btn-danger" (click)="cancelUpdate()">Cancel</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

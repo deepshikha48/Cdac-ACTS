@@ -1,0 +1,74 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="signup">
+        <form novalidate #user="ngForm" (ngSubmit)="addUser(user)">
+            <br>
+            <div class="card">
+                <h1>Sign Up </h1>
+
+                <div class="box">
+                    <input type="text" name="firstName" placeholder="First Name" pattern="[a-zA-Z][a-zA-Z ]+" ngModel required #firstname="ngModel">
+                </div>
+                <div class="error" *ngIf="!firstname?.valid && (firstname?.dirty || firstname?.touched)">
+                    &#10060;Name should contain only alphabets!
+                </div>
+
+                <div class="box">
+                    <input type="text" name="lastName" placeholder="Last Name" pattern="[a-zA-Z][a-zA-Z ]+" ngModel required #lastname="ngModel">
+                </div>
+
+                <div class="error" *ngIf="!lastname?.valid && (lastname?.dirty || lastname?.touched)">
+                    &#10060;Name should contain only alphabets!
+                </div>
+
+                <div class="box">
+
+                    <input type="email" name="email" placeholder="Email" ngModel required #email="ngModel" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$">
+                </div>
+
+                <div class="error" *ngIf="!email?.valid && (email?.dirty || email?.touched)">
+                    &#10060; Email should be valid!
+                </div>
+
+                <div class="box">
+                    <input type="tel" name="contact" placeholder="Contact" pattern="[6-9][0-9]{9}" ngModel required #contact="ngModel">
+                </div>
+                <div class="error" *ngIf="!contact?.valid && (contact?.dirty || contact?.touched)">
+                    &#10060;Contact should be valid!
+                </div>
+
+                <div class="box">
+                    <input [type]="show?'text':'password'" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" ngModel required #password="ngModel">
+                    <i (click)="togglePasswordType()" [class]="show?'far fa-eye':'far fa-eye-slash'"></i>
+                </div>
+
+                <div class="error" *ngIf="!password?.valid && (password?.dirty || password?.touched)">
+                    &#10060; Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters!
+                </div>
+
+                <br>
+                <div class="select">
+                    Select Role
+                    <select id="role" name="role" required ngModel class="role" #role="ngModel">
+                        <option *ngIf="roleBoolean" value='ADMIN' name="role">ADMIN</option>
+                        <option value='STUDENT' name="role" selected>STUDENT </option>
+                        <option *ngIf="roleBoolean" value='CANTEEN_OWNER' name="role">CANTEEN OWNER</option>
+                    </select>
+                </div>
+
+                <div class="error" *ngIf="!role?.valid && (role?.dirty || role?.touched)">
+                    &#10060; Must select role!
+                </div>
+
+                <br>
+                <button type="submit " class="btn btn-success" [disabled]="!user?.valid">Submit</button>&nbsp;&nbsp;
+
+            </div>
+        </form>
+
+    </div>
+</body>

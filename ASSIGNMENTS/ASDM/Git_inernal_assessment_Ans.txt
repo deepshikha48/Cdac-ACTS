@@ -1,0 +1,52 @@
+GIT - ASSESSEMENT   
+PRN - 200240120058
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q1 What is the purpose of this command - curl -u "username" https://api.github.com
+
+This will provide all the url that we can use in our query to get the information .
+For example one of url that we get from the output of this command is :--"user_url": "https://api.github.com/users/{user}" 
+																											 curl -u "deepshikha48" https://api.github.com/users/deepshikha48
+																											 (this helps to get info of particular user.)
+																											 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q2 What is the requests per hour limit for APIs in github
+
+curl -u "deepshikha48" https://api.github.com/rate_limit
+we can use this command to find the request per hour limit which is 5000
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q3
+
+GET – Retrieve a repo by repo name --- curl -X GET -u "deepshikha48" https://api.github.com/repos/deepshikha48/my-first-repo
+
+PUT/PATCH – Rename a repo --- curl -u "deepshikha48" -X PATCH -d "{\"name\":\"REPO_2\"}" https://api.github.com/repos/deepshikha48/"REPO"
+
+DELETE – Delete resource --- curl -X DELETE -u deepshikha48 https://api.github.com/repos/deepshikha48/REPO_2
+
+POST – curl -X POST -u deepshikha48 https://api.github.com/user/repos -d "{\"name\": \"Demo_Repo\"}"
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q4 List Collaborators for a Repository --- curl -X GET -u "deepshikha48" https://api.github.com/repos/deepshikha48/my-first-repo/collaborators
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q5 List branches in a user repository or Using GITs APIs --- curl -X GET -u "deepshikha48" https://api.github.com/repos/deepshikha48/my-first-repo/branches
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q6 Search all repositories owned by a particular user --- curl -X GET -u deepshikha48 https://api.github.com/users/deepshikha48/repos
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q7 Which one of the following is not part of the data structure of a Git repository?  ---- Body element
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	
+
+
+

@@ -1,0 +1,44 @@
+<body>
+    <div class="signup">
+        <form novalidate #userForm="ngForm" (ngSubmit)="onSubmit()">
+            <br>
+            <div class="card">
+                <h1>Update Profile </h1>
+
+                <div class="box">
+
+                    <input type="text" name="firstName" placeholder="First Name" pattern="[a-zA-Z][a-zA-Z ]+" [(ngModel)]="user.firstName" required #firstname="ngModel">
+                </div>
+
+                <div class="error" *ngIf="!firstname?.valid && (firstname?.dirty || firstname?.touched)">
+                    &#10060;Name should contain only alphabets!
+                </div>
+                <div class="box">
+                    <input type="text" name="lastName" placeholder="Last Name" pattern="[a-zA-Z][a-zA-Z ]+" [(ngModel)]="user.lastName" required #lastname="ngModel">
+                </div>
+
+                <div class="error" *ngIf="!lastname?.valid && (lastname?.dirty || lastname?.touched)">
+                    &#10060;Name should contain only alphabets!
+                </div>
+
+                <div class="box">
+                    <input type="email" name="email" placeholder="Email" [(ngModel)]="user.email" readonly>
+                </div>
+
+                <div class="box">
+                    <input type="tel" name="contact" placeholder="Contact" pattern="[6-9][0-9]{9}" [(ngModel)]="user.contact" required #contact="ngModel">
+                </div>
+                <div class="error" *ngIf="!contact?.valid && (contact?.dirty || contact?.touched)">
+                    &#10060;Contact should be valid!
+                </div>
+
+                <div class="box">
+                    <input type="text" id="role" [(ngModel)]="user.role" readonly name="role">
+                </div>
+
+                <br><br>
+                <button type="submit" class="btn btn-info" style="padding: 5px;" [disabled]="!userForm.valid">Update</button>&nbsp;&nbsp;
+            </div>
+        </form>
+    </div>
+</body>

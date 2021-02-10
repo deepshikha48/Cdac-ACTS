@@ -1,0 +1,9 @@
+use test_acts;
+
+create table mybuddies
+(email_id varchar(40) primary key,
+buddy_name varchar(20) not null,
+phone_no varchar(25) ,
+dob date,
+city varchar(10)
+);

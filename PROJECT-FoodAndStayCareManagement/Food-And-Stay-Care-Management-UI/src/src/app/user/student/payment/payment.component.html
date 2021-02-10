@@ -1,0 +1,41 @@
+<body>
+    <div class="title">
+        <form novalidate #card="ngForm" (ngSubmit)="payAmount()">
+            <div class="card">
+                <h3>Payment</h3><br>
+                <h4>Total : {{totalBill}} &#8377;</h4>
+                <div class="box">
+                    <input type="text" class="form-control form-control-sm" name="ownerName" placeholder="Card holder name" pattern="[a-zA-Z][a-zA-Z]+" ngModel required #ownerName="ngModel">
+                </div>
+                <div class="error" *ngIf="!ownerName?.valid && (ownerName?.dirty || ownerName?.touched)">
+                    &#10060;Name should contain only alphabets!
+                </div>
+
+                <div class="box">
+                    <input type="text" class="form-control form-control-sm" name="cardNumber" placeholder="Card number" pattern="[1-9][0-9]{15}" ngModel required #cardno="ngModel">
+                </div>
+                <div class="error" *ngIf="!cardno?.valid && (cardno?.dirty || cardno?.touched)">
+                    &#10060;Card number must contain 16 digits!
+                </div>
+
+                <div class="box">
+                    <input type="date" class="form-control form-control-sm" name="expiryDate" placeholder="Expiry Date" min="{{date}}" ngModel required #expiryDate="ngModel">
+                </div>
+                <div class="error" *ngIf="!expiryDate?.valid && (expiryDate?.dirty || expiryDate?.touched)">
+                    &#10060;Expiry date must be in future!
+                </div>
+
+                <div class="box">
+                    <input type="password" class="form-control form-control-sm" name="cvv" placeholder="Cvv" pattern="[1-9][0-9][0-9]" ngModel required #cvv="ngModel">
+                </div>
+                <div class="error" *ngIf="!cvv?.valid && (cvv?.dirty || cvv?.touched)">
+                    &#10060;Cvv number must contain 3 digits only!
+                </div>
+
+                <br>
+                <button type="submit" class="btn btn-info" style="margin-left: 10px" [disabled]="!card?.valid">Pay</button> <br>
+                <button (click)="cancelPayment()" class="btn btn-danger" style="margin-left: 10px">Cancel</button>
+            </div>
+        </form>
+    </div>
+</body>

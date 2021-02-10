@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        .watermark{
+            color: rgb(187, 181, 181);
+        }
+    </style>
+    
+    <script>
+            $(document).ready(function(){
+
+            var fn = "First Name";
+            var ln = "Last Name";
+            var f=$('#firstName');
+            var l=$('#lastName');
+            f.val(fn).addClass('watermark');
+            l.val(ln).addClass('watermark');
+
+            f.blur(()=>{
+                if(f.val().length==0)
+                    f.val(fn).addClass('watermark')
+            })
+
+            f.focus(()=>{
+                if(f.val()==fn)
+                    f.val("").removeClass("watermark");
+            })
+            l.blur(()=>{
+                if(l.val().length==0)
+                    l.val(ln).addClass('watermark')
+            })
+
+            l.focus(()=>{
+                if(l.val()==ln)
+                    l.val("").removeClass("watermark");
+            })
+            });
+    </script>
+</head>
+<body>
+    <div style="text-align: center;">
+    <br>
+    <h1>Watermark Effect</h1>
+    <hr width="30%" /><br />
+    <br>
+        <label>First Name:</label>
+        <input type="text" id="firstName"><br><br>
+        <label>Last Name:</label>
+        <input type="text" id="lastName"><br><br>
+</div>
+</body>
+</html>
