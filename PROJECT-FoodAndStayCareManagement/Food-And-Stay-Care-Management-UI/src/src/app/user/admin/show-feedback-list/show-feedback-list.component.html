@@ -1,0 +1,30 @@
+<body>
+    <div class="title">
+        <h3>Feedback List</h3>
+    </div>
+    <div class="container">
+        <br>
+        <table class="table table-bordered table table-hover  table-light  " style="color:black;" *ngIf="feedbackList.length!=0 ">
+            <thead class="info">
+                <tr>
+                    <th>User Id</th>
+                    <th>User Name</th>
+                    <th>Rating</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let f of feedbackList ">
+                    <td>{{f.userId.id}}</td>
+                    <td>{{f.userId.firstName}}</td>
+                    <td>{{f.rating}}</td>
+                    <td>{{f.description}}</td>
+                    <td>{{f.dateTime | date}}</td>
+                    <td>{{f.dateTime | date:"shortTime"}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>

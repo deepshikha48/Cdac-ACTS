@@ -1,0 +1,28 @@
+
+
+body {
+    font-family:cursive;
+    text-align: centre;
+    
+}
+
+h1{
+	background-color:wheat; 
+	text-align:center;
+}
+
+div{
+	text-align:center;
+}
+
+table, th, td, tr {
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding:5px;
+	background-color: wheat; 
+	margin: auto;
+}
+
+.err {
+	color: red;
+}

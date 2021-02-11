@@ -1,0 +1,73 @@
+USERS: 
+
+insert into users values(default,'9017976161','deepshikhagurjar040895@gmail.com','Deepshikha','Gurjar','Deep@123','ADMIN');
+
+
+insert into users values(default,'8950043080','deepikakolewad8647@gmail.com','Deepika','Kolewad','Deep@123','STUDENT');
+
+
+insert into users values(default,'9992215544','bhnausinghal98@gmail.com','Bhanu','Singhal','Deep@123','CANTEEN_OWNER');
+
+_____________________________________________________________________________________________________________________________
+
+MENUITEMS: 
+
+Monday-
+
+insert into menu_items values(default,"MONDAY","Daal + 2 roti + achar","Daal-Roti","DINNER",40,100);
+insert into menu_items values(default,"MONDAY","Masala chai","Tea","ALL_TIME_SNACKS",20,100);
+insert into menu_items values(default,"MONDAY","Cold Coffee","Coffee","ALL_TIME_SNACKS",20,100);
+insert into menu_items values(default,"MONDAY","Choley + Chawal + 2 roti + papad","Choley-Chawal","LUNCH",50,100);
+insert into menu_items values(default,"MONDAY","Poha + Lemon + Peanut","poha","BREAKFAST",30,100);
+insert into menu_items values(default,"MONDAY","dhokla + green chutney","Dhokla","ALL_TIME_SNACKS",20,100);
+insert into menu_items values(default,"MONDAY","Veg Noodles","Noodles","DINNER",30,100);
+
+Tuesday-
+
+insert into menu_items values(default,"TUESDAY","2 rasugulla per serving","Rasugulla","DINNER",15,100);
+insert into menu_items values(default,"TUESDAY","Rajma + Chawal + 2 roti + achar","Rajma-Chawal","DINNER",50,100);
+insert into menu_items values(default,"TUESDAY","Dosa with coconut chutney","Dosa","BREAKFAST",30,100);
+insert into menu_items values(default,"TUESDAY","Masala chai","Tea","ALL_TIME_SNACKS",20,100);
+insert into menu_items values(default,"TUESDAY","Cold Coffee","Coffee","ALL_TIME_SNACKS",20,100);
+insert into menu_items values(default,"TUESDAY","Daal + Chawal + 2 roti + papad","Daal-Chawal","LUNCH",50,100);
+insert into menu_items values(default,"TUESDAY","Samosa + green chutney","Samosa","ALL_TIME_SNACKS",20,100);
+insert into menu_items values(default,"TUESDAY","dhokla + green chutney","Dhokla","ALL_TIME_SNACKS",20,100);
+insert into menu_items values(default,"TUESDAY","Todays special","Fried rice","DINNER",30,100);
+
+Wednesday-
+
+insert into menu_items values(default,"WEDNESDAY","Vegetable maggie","Maggie","BREAKFAST",25,100);
+insert into menu_items values(default,"WEDNESDAY","Mix-veg + 3 roti + lassi","Mix-veg","LUNCH",35,100);
+insert into menu_items values(default,"WEDNESDAY","Orange juice","JUICE","ALL_TIME_SNACKS",25,100);
+insert into menu_items values(default,"WEDNESDAY","Palak paneer + 3 roti + achaar","Palak paneer","DINNER",40,100);
+
+Thursday-
+
+insert into menu_items values(default,"THURSDAY","1 kachori + chai","Kachori","BREAKFAST",25,100);
+insert into menu_items values(default,"THURSDAY","Aaloo + chawal + bindi + 3 roti + Pappad","Sabji-Chawal","LUNCH",50,100);
+insert into menu_items values(default,"THURSDAY","Vanilla icecream","Ice-cream","ALL_TIME_SNACKS",35,100);
+insert into menu_items values(default,"TUESDAY","Daal + Chawal + 2 roti + papad","Daal-Chawal","DINNER",50,100);
+
+Friday-
+
+insert into menu_items values(default,"FRIDAY","wada + green chutney + chai ","Sabut dana wada","BREAKFAST",25,100);
+insert into menu_items values(default,"FRIDAY","Daal Palak + chawal + Gobhi + 3 roti + Pappad","Daal-Chawal","LUNCH",50,100);
+insert into menu_items values(default,"FRIDAY","Masala chai","Tea","ALL_TIME_SNACKS",20,100);
+insert into menu_items values(default,"FRIDAY","Cold Coffee","Coffee","ALL_TIME_SNACKS",20,100);
+insert into menu_items values(default,"FRIDAY","Coca-cola 200ML","Cold drink","ALL_TIME_SNACKS",30,100);
+insert into menu_items values(default,"FRIDAY","Shahi paneer + 2 roti + papad","Shahi Paneer","DINNER",45,100);
+
+Saturday-
+
+insert into menu_items values(default,"SATURDAY","1 Bread Pakoda + sauce + chai","Bread pakoda","BREAKFAST",25,100);
+insert into menu_items values(default,"SATURDAY","Kadi + chawal + 3 roti + salad","kadi-pakoda","LUNCH",50,100);
+insert into menu_items values(default,"SATURDAY","Guava + orange + papaya chat","Fruit-Chat","ALL_TIME_SNACKS",35,100);
+insert into menu_items values(default,"SATURDAY","Choley + 4 Puri + halwa","Choley-Puri","DINNER",50,100);
+
+Sunday-
+
+insert into menu_items values(default,"SUNDAY","Dosa + sauce + chai","Dosa","BREAKFAST",35,100);
+insert into menu_items values(default,"SUNDAY","Daal + 4 baati + Butter cube","Daal-Baati","LUNCH",50,100);
+insert into menu_items values(default,"SUNDAY","Grilled sanwich","Sanwich","ALL_TIME_SNACKS",25,100);
+insert into menu_items values(default,"SUNDAY","Hurry Up limited Quantity","Manchurian- Fried Rice","DINNER",60,100);
+

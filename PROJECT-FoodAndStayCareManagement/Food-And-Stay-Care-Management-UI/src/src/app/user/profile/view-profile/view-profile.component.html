@@ -1,0 +1,39 @@
+<head>
+    <title>user profile</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="check1">
+        <input type="checkbox" id="checkbox1">
+        <label for="checkbox1">
+            <i class="fa fa-user" style="font-size:30px" id="usercart1"></i><br>
+        </label>
+        <label for="checkbox1">
+            <i class="fa fa-close" style="font-size:20px" id="cancel1"></i>
+        </label>
+        <div class="sidebar1">
+            <header>Profile</header>
+            <div class="user1">
+                <i class="fa fa-user" style='font-size:55px'></i>
+                <h4 style="color: white;">{{user.firstName}}&nbsp;{{user.lastName}}</h4>
+            </div><br>
+
+            <div style="color: white;text-align: center;">
+                <h5><span style="font-size: 32px;">📧</span><br> {{user.email}} </h5>
+                <h5><span style="font-size: 30px;">📞</span><br>{{user.contact}}</h5>
+                <h5><span style="font-size: 30px;">🧑</span><br>{{user.role|lowercase}} </h5><br>
+            </div>
+            <hr><br>
+
+            <a routerLink='/updateprofile'> <button class="btn btn-info" style="margin-left: 12px;padding: 4px;">Update Profile</button></a>&nbsp;&nbsp;
+            <a routerLink='/changepassword'> <button class="btn btn-info" style="padding: 4px;">Change Password</button></a>&nbsp;&nbsp;
+
+            <button (click)="deleteProfile()" class="btn btn-danger" style="margin-left: 100px;padding: 4px;margin-top:78px;">Delete profile</button><br>
+            <a class="blink" *ngIf="(!userService.isFeedbackGiven()) && userService.checkRole() !='ADMIN'" routerLink='/feedback'>
+                <button class="btn btn-info" style="margin-left: 100px;padding: 4px;margin-top:30px;">Give Feedback</button>
+            </a>
+        </div>
+    </div>
+</body>

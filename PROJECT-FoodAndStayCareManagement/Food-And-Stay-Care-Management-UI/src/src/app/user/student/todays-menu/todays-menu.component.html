@@ -1,0 +1,26 @@
+<app-cart></app-cart>
+
+<body>
+    <div class="title">
+        <h2>Today's Menu</h2>
+    </div>
+    <div id="list" class="list">
+        <div *ngFor="let m of menu">
+            <div class="card">
+                <div class="mealtype">
+                    {{m.mealType}}
+                </div>
+                <div class="title">{{m.itemName}}</div>
+                <div class="description">
+                    {{m.description}}</div>
+                <br>
+                <input class="quantity" placeholder="Enter Quantity" type="number" id="totalQuantity" #totalQuantity name="totalQuantity" max="{{m.totalQuantity-1}}" min="1">
+                <br>
+                <div class="price">{{m.price}} &#8377;</div>
+                <div class="buy">
+                    <button (click)="addItemIntoCart(m,totalQuantity.value)" class="btn btn-info">Cart It</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

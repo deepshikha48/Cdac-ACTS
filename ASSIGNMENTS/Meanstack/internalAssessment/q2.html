@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <script src="./../../scripts/jquery-3.5.1.js"></script>
+        <script>
+            $(()=>{
+                $("#isAddrSame").click(()=>{
+                    if($("#isAddrSame").is(":checked")){
+                        $("#baddr").val($("#saddr").val()).attr("readonly","true");
+                        $("#bcity").val($("#scity").val()).attr("readonly","true");
+                        $("#bstate").val($("#sstate").val()).attr("readonly","true");
+                        $("#bzip").val($("#szip").val()).attr("readonly","true");
+                        
+                    }
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div style="border: 2px solid black;">
+            <h3 style="text-align: center;">Shopping</h3>
+            <table>
+                <tr><td><input type="text" name="fname" id="fname" placeholder="Enter first name"></td></tr>
+                <tr><td><input type="text" name="lname" id="lname" placeholder="Enter last name"></td></tr>
+
+                <tr><hr></tr>
+
+                <tr><td><label>Shipping address:</label></td></tr>
+                <tr><td><input type="text" name="addr" id="saddr" placeholder="Enter Address"></td></tr>
+                <tr><td><input type="text" name="city" id="scity" placeholder="city"></td></tr>
+                <tr><td><input type="text" name="state" id="sstate" placeholder="state"></td></tr>
+                <tr><td><input type="number" name="zip" id="szip" placeholder="zip"></td></tr>
+
+                <tr><hr></tr>
+
+                <tr><td><label>Billing address:</label></td></tr>
+                <tr><td><input type="checkbox" name="isAddrSame" id="isAddrSame">Is shipping and billing addresses are same?</td></tr>
+                <tr><td><input type="text" name="addr" id="baddr" placeholder="Enter Address"></td></tr>
+                <tr><td><input type="text" name="city" id="bcity" placeholder="city"></td></tr>
+                <tr><td><input type="text" name="state" id="bstate" placeholder="state"></td></tr>
+                <tr><td><input type="number" name="zip" id="bzip" placeholder="zip"></td></tr><br>
+            </table>
+            <br>
+        </div>
+    </body>
+</html>

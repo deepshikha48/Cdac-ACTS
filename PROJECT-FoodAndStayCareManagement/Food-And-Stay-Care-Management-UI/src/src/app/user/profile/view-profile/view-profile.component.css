@@ -1,0 +1,105 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    font-family: cursive;
+}
+
+.sidebar1 {
+    position: fixed;
+    right: -300px;
+    float: right;
+    top: 0%;
+    width: 300px;
+    height: 100%;
+    background-color: #008080;
+    transition: 0.5s all ease;
+    z-index: 1111;
+}
+
+.sidebar1 header {
+    font-size: 40px;
+    color: #008080;
+    ;
+    text-align: center;
+    line-height: 80px;
+    background-color: white;
+}
+
+.sidebar1 i {
+    color: white;
+    padding-top: 25px;
+    padding-bottom: 5px;
+}
+
+.user1 {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 20px;
+}
+
+.check1 {
+    float: right;
+}
+
+#checkbox1 {
+    display: none;
+}
+
+label #usercart1,
+#cancel1 {
+    position: absolute;
+}
+
+label #usercart1 {
+    right: 60px;
+    top: 20px;
+    color: white;
+    transition: 0.3s ease all;
+}
+
+label #cancel1 {
+    z-index: 5000;
+    right: 270px;
+    top: 2px;
+    color: #008080;
+    transition: 0.3s ease all;
+    opacity: 0;
+}
+
+#checkbox1:checked~.sidebar1 {
+    right: 0px;
+}
+
+#checkbox1:checked~label #usercart1 {
+    right: 0px;
+    opacity: 0;
+}
+
+#checkbox1:checked~label #cancel1 {
+    opacity: 1;
+}
+
+.blink button {
+    font-weight: bold;
+    animation: blinkingText 0.8s infinite;
+}
+
+@keyframes blinkingText {
+    0% {
+        color: white;
+    }
+    49% {
+        color: black;
+    }
+    60% {
+        color: white;
+    }
+    99% {
+        color: black;
+    }
+    100% {
+        color: white;
+    }
+}

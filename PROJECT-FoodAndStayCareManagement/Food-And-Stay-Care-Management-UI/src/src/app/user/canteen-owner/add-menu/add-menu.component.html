@@ -1,0 +1,49 @@
+<body>
+    <div class="title">
+        <form novalidate #menuItem="ngForm" (ngSubmit)="addNewItem(menuItem)">
+
+            <div class="card">
+                <h3>Add New Item</h3>
+
+                <div class="box">
+                    <input type="text" class="form-control" id="itemName" name="itemName" placeholder="Name" pattern="[a-zA-Z][a-zA-Z ]+" ngModel required #itemName="ngModel">
+                </div>
+                <div class="error" *ngIf="!itemName?.valid && (itemName?.dirty || itemName?.touched)">
+                    &#10060;Name should contain only alphabets!
+                </div>
+
+                <div class="box">
+                    <input type="text" class="form-control" id="totalQuantity" placeholder="Total quantity" name="totalQuantity" min="1" required pattern="^[1-9][0-9]*$" ngModel #totalQuantity="ngModel">
+                </div>
+                <div class="error" *ngIf="!totalQuantity?.valid && (totalQuantity?.dirty || totalQuantity?.touched)">
+                    &#10060;Enter valid quantity!
+                </div>
+
+                <div class="box">
+                    <textarea class="form-control" id="description" placeholder="Description" name="description" rows="2" cols="40" maxlength="90" required ngModel #description="ngModel"></textarea>
+                </div>
+                <div class="error" *ngIf="!description?.valid && (description?.dirty || description?.touched)">
+                    &#10060; Exceeds max length!
+                </div>
+
+                <div class="box">
+                    <input type="text" class="form-control" id="price" placeholder="Price" name="price" min="0" required ngModel #price="ngModel" pattern="^[0-9][0-9]*$">
+                </div>
+                <div class="error" *ngIf="!price?.valid && (price?.dirty || price?.touched)">
+                    &#10060;Enter valid price!
+                </div>
+
+                <div class="box">
+
+                    <input type="text" class="form-control" id="mealType" required [(ngModel)]="mealType" name="mealType" readonly>
+                </div>
+
+                <div class="box">
+                    <input type="text" class="form-control" id="day" required [(ngModel)]="day" name="day" readonly>
+                </div><br>
+                <button type="submit" class="btn btn-info" [disabled]="!menuItem?.valid">Add Item</button>
+
+            </div>
+        </form>
+    </div>
+</body>

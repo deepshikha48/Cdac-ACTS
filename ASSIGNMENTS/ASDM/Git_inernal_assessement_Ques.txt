@@ -1,0 +1,51 @@
+Assignment on GIT
+=================
+
+What is the purpose of this command - curl -u "username" https://api.github.com
+What is the requests per hour limit for APIs in github
+Give a working example using curl calls for each of the following API methods in Github:
+	-> GET – Retrieve the resource
+	-> PUT/PATCH – Update resource
+	-> POST – Create a resource
+	-> DELETE – Delete resource
+Rename the Repository using API
+Delete the Repository using API
+List Collaborators for a Repository
+List branches in a user repository or Using GITs APIs - get list of all project branches
+Search all repositories owned by a particular user
+Which one of the following is not part of the data structure of a Git repository?
+	a. Body element
+	b. Branch pointer
+	c. Commit object
+	d. HEAD pointer
+	e. None of the above (i.e., they are all parts)
+
+
+Note: Please visit this once - https://dzone.com/articles/using-gitlab-rest-api-to-create-projects
+
+--------------------------------------------------------------------------------------------------
+
+RENAME
+Method 1:
+deepsikha@deepsikha-Lenovo-ideapad-330S-14IKB:~/gitAssignment$ user=deepshikha48
+deepsikha@deepsikha-Lenovo-ideapad-330S-14IKB:~/gitAssignment$ pass=gurjar240297
+deepsikha@deepsikha-Lenovo-ideapad-330S-14IKB:~/gitAssignment$ newname='{"name":"REPO"}'
+deepsikha@deepsikha-Lenovo-ideapad-330S-14IKB:~/gitAssignment$ oldname="REPO_2"
+deepsikha@deepsikha-Lenovo-ideapad-330S-14IKB:~/gitAssignment$ curl -u "$user:$pass" -X PATCH -d "$newname" https://api.github.com/repos/$user/$oldname
+
+Meyhod 2:
+curl -u "deepshikha48" -X PATCH -d "{\"name\":\"REPO_2\"}" https://api.github.com/repos/deepshikha48/"REPO"
+
+
+GET
+curl -X GET -u deepshikha48 https://api.github.com/users/deepshikha48/repos
+curl -u 'deepshikha48' https://api.github.com/user/repos
+
+DELETE
+curl -X DELETE -u deepshikha48 https://api.github.com/repos/deepshikha48/REPO_2
+
+CREATE
+curl -u 'deepshikha48' https://api.github.com/user/repos -d '{"name":"REPO_2"}'
+curl -X POST -u deepshikha48 https://api.github.com/user/repos -d "{\"name\": \"Demo_Repo\"}"
+
+

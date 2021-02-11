@@ -1,0 +1,67 @@
+
+<h3>ALL STUDENTS</h3>
+<table class="table table-bordered table-sm">
+    <thead class="thead-light"> 
+        <tr>
+            <th>Id</th>
+            <th>Fist Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Dob</th>
+            <th>Marks</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let student of students">
+                <td>{{student.id}}</td>
+                <td>{{student.firstName}}</td>
+                <td>{{student.lastName}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.dob}}</td>
+                <td>{{student.marks}}</td>
+            </tr>
+    </tbody>
+</table>
+
+<br><hr>
+<h3>SEARCH BY ID</h3>
+
+    <div class="input-group">
+        <input #sid type="number" class="form-control" placeholder="Enter id">
+        <div class="input-group-append">
+          <button (click)="getStudentById(sid.value)" class="btn btn-primary" type="button">Enter</button>
+        </div>
+      </div>
+    <br>
+
+    <table *ngIf='student' class="table table-bordered table-sm">
+        <tbody>
+                <tr *ngIf='student.id' class="info">
+                    <td>{{student.id}}</td>
+                    <td>{{student.firstName}}</td>
+                    <td>{{student.lastName}}</td>
+                    <td>{{student.email}}</td>
+                    <td>{{student.dob}}</td>
+                    <td>{{student.marks}}</td>
+                </tr>
+        </tbody>
+    </table>
+
+    <br><hr>
+
+    <h3>ADD A NEW STUDENT</h3>
+    <form #newStudent="ngForm" (ngSubmit)="addStudent(newStudent)">
+        <input type="number"  class="form-control" style="width: 30%;" name="id" id="sid" placeholder="Enter id" required ngModel>
+        <input type="text" class="form-control"  style="width: 30%;" name="firstName" placeholder="Enter first name" required ngModel>
+        <input type="text" class="form-control"  style="width: 30%;" name="lastName" placeholder="Enter last name" required ngModel>
+        <input type="email"  class="form-control" style="width: 30%;"  name="email" placeholder="Enter email" required ngModel>
+        <input type="date"  class="form-control" style="width: 30%;" name="dob" placeholder="Enter date of birth" required ngModel>
+        <input type="number"  class="form-control" style="width: 30%;" name="marks" placeholder="Enter marks" required ngModel>
+        <input type="submit"  class="form-control" style="width: 30%;" value="Add" class="btn btn-primary" >
+    </form>
+
+   
+
+
+
+

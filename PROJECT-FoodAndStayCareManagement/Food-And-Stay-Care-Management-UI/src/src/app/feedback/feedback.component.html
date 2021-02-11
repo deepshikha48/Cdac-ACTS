@@ -1,0 +1,53 @@
+<body>
+    <div class="card">
+        <div class="app">
+            <h2 style="color: #008080;">Was FSCM services helpful?</h2><br>
+
+            <div class="container">
+                <div class="item">
+                    <label for="1">
+            <input class="radio" type="radio" name="feedback" id="1" value="1" (change)=radioChangeHandler($event)>
+            <span>👿</span>
+          </label>
+                </div>
+
+                <div class="item">
+                    <label for="2">
+            <input class="radio" type="radio" name="feedback" id="2" value="2" (change)=radioChangeHandler($event)>
+            <span>🙁</span>
+          </label>
+                </div>
+
+                <div class="item">
+                    <label for="3">
+            <input class="radio" type="radio" name="feedback" id="3" value="3" (change)=radioChangeHandler($event)>
+
+            <span>😀</span>
+          </label>
+                </div>
+
+                <div class="item">
+                    <label for="4">
+            <input class="radio" type="radio" name="feedback" id="4" value="4" (change)=radioChangeHandler($event)>
+            <span>😍</span>
+          </label>
+                </div>
+
+                <div class="item">
+                    <label for="5">
+            <input class="radio" type="radio" name="feedback" id="5" value="5" (change)=radioChangeHandler($event)>
+            <span>💗</span>
+          </label>
+                </div><br>
+                <div>
+                    <textarea class="form-control" id="description" placeholder="Let us know how we did..." name="description" [(ngModel)]="description" rows="2" cols="40"></textarea>
+                </div>
+
+                <div>
+                    <br>
+                    <button (click)="submitFeedback()" type="submit" class="btn btn-info" style="margin-left: 10px" [disabled]="!buttonEnabled">Submit</button> <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

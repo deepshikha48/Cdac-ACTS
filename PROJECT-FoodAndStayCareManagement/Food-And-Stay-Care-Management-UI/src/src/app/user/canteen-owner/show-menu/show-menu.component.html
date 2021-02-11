@@ -1,0 +1,53 @@
+<body>
+    <div class="title">
+        <h3>Menu</h3>
+    </div>
+    <div class="ownernav">
+        <div class="center">
+            <form>
+                <select #day name="days">
+                 <option *ngFor="let d of days" value='{{d}}' name="day">{{d}}</option>
+                </select> &nbsp;&nbsp;&nbsp;
+
+                <select #mealType name="mealTypes">
+                  <option *ngFor="let t of mealTypes" value='{{t}}' name="mealtype">{{t}}</option>
+                </select>&nbsp;&nbsp;&nbsp;
+                <input type="submit" value="Search" class="btn btn-info" (click)="getMenu(day.value,mealType.value)">
+                <button (click)="addnewitem(day.value,mealType.value)" class="btn btn-info">Add item</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <br>
+        <table class="table table-bordered table table-hover  table-light  " style="color:black;" *ngIf=" menu.length!=0 ">
+            <thead class="info">
+                <tr>
+                    <th>Meal</th>
+                    <th>Quantity</th>
+                    <th>Description</th>
+                    <th>Meal Type</th>
+                    <th>Day</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let m of menu ">
+
+                    <td>{{m.itemName}}.</td>
+                    <td>{{m.totalQuantity}}</td>
+                    <td>{{m.description}}</td>
+                    <td>{{m.mealType|lowercase}}</td>
+                    <td>{{m.day|lowercase}}</td>
+                    <td>{{m.price}}</td>
+                    <td>
+                        <a href='/updatemenu/{{m.id}}'> <button class="btn btn-info " style="margin-left: 10px ">Update</button></a>&nbsp;&nbsp;
+                        <button (click)="deleteMenu(m.id) " class="btn btn-danger ">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</body>

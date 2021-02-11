@@ -1,0 +1,21 @@
+<body>
+    <div class="main">
+        <ul>
+            <a class="right" *ngIf="!userService.isUserLoggedIn()" href="http://localhost:4300/"><img src="../../assets/images/favicon.ico" height="50px" width="50px" /></a>
+            <li class="active"><a *ngIf="userService.isUserLoggedIn()" routerLink="/">Home</a></li>
+            <li><a *ngIf="!userService.isUserLoggedIn()" routerLink="/login">Login</a></li>
+            <li><a *ngIf="!userService.isUserLoggedIn()" routerLink="/register">Sign up</a></li>
+            <li><a *ngIf="userService.isUserLoggedIn() && userService.checkRole()==='STUDENT'" routerLink="/todaysmenu">Menu</a>
+            </li>
+            <li><a *ngIf="userService.isUserLoggedIn() && userService.checkRole()==='CANTEEN_OWNER'" routerLink="/showmenu">Show Menu</a>
+            </li>
+            <li><a *ngIf="userService.isUserLoggedIn() && userService.checkRole()==='ADMIN'" routerLink="/feedbacklist">Feedbacks</a>
+            </li>
+            <li><a *ngIf="userService.isUserLoggedIn() && userService.checkRole()==='ADMIN'" routerLink="/userlist">Users</a></li>
+            <li><a *ngIf="userService.isUserLoggedIn() && userService.checkRole()!='ADMIN'" routerLink="/contact">Contact us</a></li>
+            <li><a *ngIf="userService.isUserLoggedIn() && userService.checkRole()!='ADMIN'" routerLink="/about">About us</a></li>
+            <li><a *ngIf="userService.isUserLoggedIn()" routerLink="/logout">Logout</a></li>
+        </ul>
+        <app-view-profile *ngIf="userService.isUserLoggedIn()"></app-view-profile>
+    </div>
+</body>
